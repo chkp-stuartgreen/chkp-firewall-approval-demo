@@ -9,7 +9,7 @@ provider "checkpoint" {
 
 resource "checkpoint_management_access_rule" "rule1-subnet_a_to_b_icmp" {
   name = "SubnetA-B ping"
-  comments = "Demo change"
+  comments = "Protected change"
   
   # Limitedscopelayer1 is a layer that is delgated to a business
   # unit or team.
