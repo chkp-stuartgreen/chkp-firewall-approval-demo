@@ -32,3 +32,15 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+.terraform.*
+#VS Code and env stuff
+launch.json
+tasks.json
+.env
+
+#Check Point terraform temp / session files
+sid.json
+fingerprints.json
+
+#Spectral files
+**/.spectral/*
