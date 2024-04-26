@@ -9,6 +9,7 @@ provider "checkpoint" {
 
 resource "checkpoint_management_access_rule" "rule1-subnet_a_to_b_icmp" {
   name = "SubnetA-B ping"
+  comments = "Github actions demo"
   layer = "LimitedScopeLayer1"
   #layer = "Network"
   position = {top = "top"}
