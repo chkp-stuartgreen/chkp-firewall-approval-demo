@@ -19,4 +19,4 @@ jobs:
         env:
           TF_VAR_smart1_server: ${{secrets.TF_VAR_SMART1_SERVER}}
           TF_VAR_smart1_api_key: ${{secrets.TF_VAR_SMART1_API_KEY}}
-          TF_VAR_smart1_cloud_id: ${{secrets.TF_VAR_SMART1_API_KEY}}
+          TF_VAR_smart1_cloud_id: ${{secrets.TF_VAR_SMART1_CLOUD_ID}}
