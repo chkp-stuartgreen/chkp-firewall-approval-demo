@@ -1,9 +1,9 @@
 name: Check Point - Firewall approver demo
 
 on: 
-  push:
+  pull_request:
     branches: 
-      - 'protected-main'
+      - 'main'
   
 jobs:
   apply-cp-policy:
