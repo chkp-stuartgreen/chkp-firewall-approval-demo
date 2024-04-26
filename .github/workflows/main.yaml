@@ -1,0 +1,22 @@
+name: Check Point - Firewall approver demo
+
+on: 
+  push:
+    branches: 
+      - 'limitedlayer1'
+  
+jobs:
+  apply-cp-policy:
+    environment: limitedlayer1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v3
+      - name: Apply TF CP policy to limitedlayer1
+        run: | 
+          terraform init
+          terraform apply -auto-approve
+        env:
+          TF_VAR_smart1_server: ${{secrets.TF_VAR_SMART1_SERVER}}
+          TF_VAR_smart1_api_key: ${{secrets.TF_VAR_SMART1_API_KEY}}
+          TF_VAR_smart1_cloud_id: ${{secrets.TF_VAR_SMART1_API_KEY}}
