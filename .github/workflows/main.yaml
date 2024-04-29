@@ -1,4 +1,4 @@
-name: Check Point - Firewall approver demo
+name: Check Point - Firewall approver demo. Protected branch.
 
 on: 
   pull_request:
@@ -12,7 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v3
-
       - name: Run TF plan
         run: | 
           terraform init
@@ -20,7 +19,7 @@ jobs:
         env:
           TF_VAR_smart1_server: ${{secrets.TF_VAR_SMART1_SERVER}}
           TF_VAR_smart1_api_key: ${{secrets.TF_VAR_SMART1_API_KEY}}
-          TF_VAR_smart1_cloud_id: ${{secrets.TF_VAR_SMART1_CLOUD_ID}}
+          TF_VAR_smart1_cloud_id: ${{secrets.TF_VAR_SMART1_CLOUD_ID}}      
       - uses: actions/upload-artifact@v4
         with:
           name: TF plan output
@@ -33,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v3
-      - name: Apply TF CP policy to limitedlayer1
+      - name: Apply TF CP policy to protected (main) policy
         run: | 
           terraform init
           terraform apply -auto-approve
