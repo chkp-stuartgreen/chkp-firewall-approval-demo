@@ -17,6 +17,7 @@ jobs:
         run: | 
           terraform init
           terraform plan -no-color 2>&1 | tee ${{ github.workspace }}/plan_output.txt
+          find / -name plan_output.txt
         env:
           TF_VAR_smart1_server: ${{secrets.TF_VAR_SMART1_SERVER}}
           TF_VAR_smart1_api_key: ${{secrets.TF_VAR_SMART1_API_KEY}}
