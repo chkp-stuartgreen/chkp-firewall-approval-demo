@@ -7,7 +7,7 @@ on:
   
 jobs:
   output-tf-plan:
-    environment: prod
+    environment: staging
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
