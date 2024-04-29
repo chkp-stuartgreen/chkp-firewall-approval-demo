@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: hashicorp/setup-terraform@v3
 
-      - name: Apply TF CP policy to limitedlayer1
+      - name: Run TF plan
         run: | 
           terraform init
           terraform plan -no-color 2>&1 | tee ${{ github.workspace }}/plan_output.txt
@@ -21,12 +21,10 @@ jobs:
           TF_VAR_smart1_server: ${{secrets.TF_VAR_SMART1_SERVER}}
           TF_VAR_smart1_api_key: ${{secrets.TF_VAR_SMART1_API_KEY}}
           TF_VAR_smart1_cloud_id: ${{secrets.TF_VAR_SMART1_CLOUD_ID}}
-      - name: Add TF plan output to PR
-        uses: blinqas/tf-plan-pr-comment@v1
+      - uses: actions/upload-artifact@v4
         with:
-          output_file: ${{ github.workspace }}/plan_output.txt
-        env:  
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: TF plan output
+          path: ${{ github.workspace}}/plan_output.txt
 
   apply-cp-policy:
     environment: prod
