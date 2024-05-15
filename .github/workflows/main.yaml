@@ -14,7 +14,7 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
       - name: Run TF plan
         run: | 
-          terraform init
+          TF_HTTP_PASSWORD=${{secrets.TF_HTTP_PASSWORD}} terraform init
           terraform plan -no-color 2>&1 | tee ${{ github.workspace }}/plan_output.txt
         env:
           TF_VAR_smart1_server: ${{secrets.TF_VAR_SMART1_SERVER}}
