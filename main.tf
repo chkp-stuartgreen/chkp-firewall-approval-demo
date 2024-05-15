@@ -7,17 +7,17 @@ provider "checkpoint" {
   auto_publish_batch_size = 1
 }
 
-resource "checkpoint_management_access_rule" "rule1-subnet_a_to_b_icmp" {
-  name = "SubnetA-B ping"
-  comments = "Demo change"
-  layer = "LimitedScopeLayer1"
-  #layer = "Network"
-  position = {top = "top"}
-  source = ["Any"] 
-  service = ["icmp-requests"]
-  destination = ["Any"]
-  track = {
-    type = "Log"
-  }
-  action = "Accept"
-}
+# resource "checkpoint_management_access_rule" "rule1-subnet_a_to_b_icmp" {
+#   name = "SubnetA-B ping"
+#   comments = "Demo change"
+#   layer = "LimitedScopeLayer1"
+#   #layer = "Network"
+#   position = {top = "top"}
+#   source = ["Any"] 
+#   service = ["icmp-requests"]
+#   destination = ["Any"]
+#   track = {
+#     type = "Log"
+#   }
+#   action = "Accept"
+# }
