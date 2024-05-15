@@ -14,7 +14,7 @@ jobs:
       - uses: hashicorp/setup-terraform@v3
       - name: Apply TF CP policy to limitedlayer1
         run: | 
-          terraform init
+          TF_HTTP_PASSWORD=${{secrets.TF_HTTP_PASSWORD}} terraform init
           terraform apply -auto-approve
         env:
           TF_VAR_smart1_server: ${{secrets.TF_VAR_SMART1_SERVER}}
