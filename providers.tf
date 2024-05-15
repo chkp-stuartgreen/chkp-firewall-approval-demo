@@ -5,4 +5,13 @@ terraform {
       version = "2.7.0"
     }
   }
+  backend "http" {
+    address = "https://gitlab.com/api/v4/projects/57919820/terraform/state/$TF_STATE_NAME"
+    lock_address = "https://gitlab.com/api/v4/projects/57919820/terraform/state/$TF_STATE_NAME/lock"
+    unlock_address = "https://gitlab.com/api/v4/projects/57919820/terraform/state/$TF_STATE_NAME/lock"
+    username= "chkp-stuartgreen"
+    password = ${{secrets.GITLAB_ACCESS_TOKEN}}
+    lock_method = "POST"
+    unlock_method = "DELETE"
+  }
 }
