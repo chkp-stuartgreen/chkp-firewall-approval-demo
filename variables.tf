@@ -9,7 +9,3 @@ variable "smart1_api_key" {
  variable "smart1_cloud_id" {
    type = string
  }
-
- variable "gitlab_access_token" {
-  type = string
- }
