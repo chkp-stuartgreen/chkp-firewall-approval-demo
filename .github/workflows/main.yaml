@@ -15,7 +15,7 @@ jobs:
       - name: Apply TF CP policy to limitedlayer1
         run: | 
           TF_HTTP_PASSWORD=${{secrets.TF_HTTP_PASSWORD}} terraform init
-          terraform apply -auto-approve
+          TF_HTTP_PASSWORD=${{secrets.TF_HTTP_PASSWORD}} terraform apply -auto-approve
         env:
           TF_VAR_smart1_server: ${{secrets.TF_VAR_SMART1_SERVER}}
           TF_VAR_smart1_api_key: ${{secrets.TF_VAR_SMART1_API_KEY}}
