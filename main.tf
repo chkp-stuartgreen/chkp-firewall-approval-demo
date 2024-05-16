@@ -7,24 +7,24 @@ provider "checkpoint" {
   auto_publish_batch_size = 1
 }
 
-# resource "checkpoint_management_access_rule" "rule1-subnet_a_to_b_icmp" {
-#   name = "Protected SubnetA-B ping"
-#   comments = "Protected change"
+resource "checkpoint_management_access_rule" "rule1-subnet_a_to_b_icmp" {
+  name = "Protected SubnetA-B ping"
+  comments = "Protected change"
   
-#   # Limitedscopelayer1 is a layer that is delgated to a business
-#   # unit or team.
+  # Limitedscopelayer1 is a layer that is delgated to a business
+  # unit or team.
 
-#   # Network is the main policy which requires different permissions
-#   # and pushes to a protected branch.
+  # Network is the main policy which requires different permissions
+  # and pushes to a protected branch.
 
-#   #layer = "LimitedScopeLayer1"
-#   layer = "Network"
-#   position = {top = "top"}
-#   source = ["Any"] 
-#   service = ["icmp-requests"]
-#   destination = ["Any"]
-#   track = {
-#     type = "Log"
-#   }
-#   action = "Accept"
-# }
+  #layer = "LimitedScopeLayer1"
+  layer = "Network"
+  position = {top = "top"}
+  source = ["Any"] 
+  service = ["icmp-requests"]
+  destination = ["Any"]
+  track = {
+    type = "Log"
+  }
+  action = "Accept"
+}
